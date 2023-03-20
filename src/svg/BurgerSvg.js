@@ -1,13 +1,14 @@
-import * as React from 'react';
-import Svg, {Path} from 'react-native-svg';
+import * as React from "react"
+import Svg, { Path } from "react-native-svg"
 
-const BurgerSvg = props => (
+const BurgerSvg = (props) => (
   <Svg
     width={44}
     height={38}
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    {...props}>
+    {...props}
+  >
     <Path
       d="M40.75 29.938H3.25a3.125 3.125 0 0 0-3.125 3.125 4.687 4.687 0 0 0 4.688 4.687h34.374a4.687 4.687 0 0 0 4.688-4.688c0-1.725-1.4-3.124-3.125-3.124Z"
       fill="#FAA01E"
@@ -69,6 +70,6 @@ const BurgerSvg = props => (
       fill="#FAA01E"
     />
   </Svg>
-);
+)
 
-export default BurgerSvg;
+export default BurgerSvg

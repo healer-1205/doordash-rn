@@ -1,13 +1,14 @@
-import * as React from 'react';
-import Svg, {Path} from 'react-native-svg';
+import * as React from "react"
+import Svg, { Path } from "react-native-svg"
 
-const MapPinTwoSvg = props => (
+const MapPinTwoSvg = (props) => (
   <Svg
     width={18}
     height={18}
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    {...props}>
+    {...props}
+  >
     <Path
       d="M15.75 7.5c0 5.25-6.75 9.75-6.75 9.75s-6.75-4.5-6.75-9.75a6.75 6.75 0 0 1 13.5 0Z"
       stroke="#7D849A"
@@ -23,6 +24,6 @@ const MapPinTwoSvg = props => (
       strokeLinejoin="round"
     />
   </Svg>
-);
+)
 
-export default MapPinTwoSvg;
+export default MapPinTwoSvg

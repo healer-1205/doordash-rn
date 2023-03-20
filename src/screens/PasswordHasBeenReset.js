@@ -1,12 +1,12 @@
-import {View, Text, Image, ScrollView} from 'react-native';
-import React from 'react';
-import {useNavigation} from '@react-navigation/native';
+import { View, Text, Image, ScrollView } from "react-native"
+import React from "react"
+import { useNavigation } from "@react-navigation/native"
 
-import {SIZES, COLORS, FONTS} from '../constants';
-import {Button} from '../components';
+import { SIZES, COLORS, FONTS } from "../constants"
+import { Button } from "../components"
 
 export default function PasswordHasBeenReset() {
-  const navigation = useNavigation();
+  const navigation = useNavigation()
 
   function renderContent() {
     return (
@@ -16,44 +16,47 @@ export default function PasswordHasBeenReset() {
           paddingTop: SIZES.height * 0.08,
           paddingBottom: 30,
           paddingHorizontal: 16,
-        }}>
+        }}
+      >
         <Image
-          source={require('../assets/images/key.png')}
+          source={require("../assets/images/key.png")}
           style={{
             width: 297,
             height: 297,
-            alignSelf: 'center',
+            alignSelf: "center",
             top: 42,
           }}
         />
         <Text
           style={{
             ...FONTS.H1,
-            textAlign: 'center',
+            textAlign: "center",
             lineHeight: 40 * 1,
             marginBottom: 10,
-          }}>
-          Your password has {'\n'} been reset
+          }}
+        >
+          Your password has {"\n"} been reset
         </Text>
         <Text
           style={{
-            textAlign: 'center',
+            textAlign: "center",
             ...FONTS.bodyText,
             color: COLORS.gray,
             lineHeight: 16 * 1.5,
             marginBottom: 70,
-          }}>
-          Qui ex aute ipsum duis. Incididunt adipisicing {'\n'} voluptate
+          }}
+        >
+          Qui ex aute ipsum duis. Incididunt adipisicing {"\n"} voluptate
           laborum
         </Text>
-        <Button title="done" onPress={() => navigation.navigate('SignIn')} />
+        <Button title="done" onPress={() => navigation.navigate("SignIn")} />
       </ScrollView>
-    );
+    )
   }
 
   return (
-    <View style={{backgroundColor: COLORS.white, flex: 1}}>
+    <View style={{ backgroundColor: COLORS.white, flex: 1 }}>
       {renderContent()}
     </View>
-  );
+  )
 }

@@ -1,13 +1,14 @@
-import * as React from 'react';
-import Svg, {Path} from 'react-native-svg';
+import * as React from "react"
+import Svg, { Path } from "react-native-svg"
 
-const ClockSvg = props => (
+const ClockSvg = (props) => (
   <Svg
     width={18}
     height={19}
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    {...props}>
+    {...props}
+  >
     <Path
       d="M9 17A7.5 7.5 0 1 0 9 2a7.5 7.5 0 0 0 0 15Z"
       stroke="#7D849A"
@@ -23,6 +24,6 @@ const ClockSvg = props => (
       strokeLinejoin="round"
     />
   </Svg>
-);
+)
 
-export default ClockSvg;
+export default ClockSvg

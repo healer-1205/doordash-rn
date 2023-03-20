@@ -1,14 +1,14 @@
-import {Text, TouchableOpacity, SafeAreaView} from 'react-native';
-import React from 'react';
-import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scrollview';
-import {useNavigation} from '@react-navigation/native';
+import { Text, TouchableOpacity, SafeAreaView } from "react-native"
+import React from "react"
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scrollview"
+import { useNavigation } from "@react-navigation/native"
 
-import {AndroidSafeArea, COLORS, FONTS} from '../constants';
-import {Button, InputField, Header} from '../components';
-import {EyeOffSvg} from '../svg';
+import { AndroidSafeArea, COLORS, FONTS } from "../constants"
+import { Button, InputField, Header } from "../components"
+import { EyeOffSvg } from "../svg"
 
 export default function ResetPassword() {
-  const navigation = useNavigation();
+  const navigation = useNavigation()
 
   function renderHeader() {
     return (
@@ -17,7 +17,7 @@ export default function ResetPassword() {
         goBack={true}
         onPress={() => navigation.goBack()}
       />
-    );
+    )
   }
 
   function renderContent() {
@@ -27,18 +27,20 @@ export default function ResetPassword() {
           flexGrow: 1,
           paddingHorizontal: 16,
           paddingTop: 20,
-        }}>
+        }}
+      >
         <Text
           style={{
             marginBottom: 30,
             ...FONTS.bodyText,
             color: COLORS.gray,
             lineHeight: 16 * 1.5,
-          }}>
+          }}
+        >
           Enter new password and confirm.
         </Text>
         <InputField
-          containerStyle={{marginBottom: 30}}
+          containerStyle={{ marginBottom: 30 }}
           title="new password"
           placeholder="••••••••"
           icon={
@@ -48,7 +50,7 @@ export default function ResetPassword() {
           }
         />
         <InputField
-          containerStyle={{marginBottom: 30}}
+          containerStyle={{ marginBottom: 30 }}
           title="confirm password"
           placeholder="••••••••"
           icon={
@@ -59,16 +61,16 @@ export default function ResetPassword() {
         />
         <Button
           title="change password"
-          onPress={() => navigation.navigate('PasswordHasBeenReset')}
+          onPress={() => navigation.navigate("PasswordHasBeenReset")}
         />
       </KeyboardAwareScrollView>
-    );
+    )
   }
 
   return (
-    <SafeAreaView style={{...AndroidSafeArea.AndroidSafeArea}}>
+    <SafeAreaView style={{ ...AndroidSafeArea.AndroidSafeArea }}>
       {renderHeader()}
       {renderContent()}
     </SafeAreaView>
-  );
+  )
 }

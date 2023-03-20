@@ -1,13 +1,14 @@
-import * as React from 'react';
-import Svg, {Path} from 'react-native-svg';
+import * as React from "react"
+import Svg, { Path } from "react-native-svg"
 
-const GuacamoleSvg = props => (
+const GuacamoleSvg = (props) => (
   <Svg
     width={50}
     height={50}
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    {...props}>
+    {...props}
+  >
     <Path
       d="M47.351 14.225 37.195 6.412a.78.78 0 0 0-1.242.466l-2.344 11.719a.781.781 0 0 0 1 .899l12.5-3.906a.781.781 0 0 0 .242-1.365Z"
       fill="#FAA019"
@@ -61,6 +62,6 @@ const GuacamoleSvg = props => (
       fill="#643773"
     />
   </Svg>
-);
+)
 
-export default GuacamoleSvg;
+export default GuacamoleSvg

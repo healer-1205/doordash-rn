@@ -1,13 +1,14 @@
-import * as React from 'react';
-import Svg, {Path} from 'react-native-svg';
+import * as React from "react"
+import Svg, { Path } from "react-native-svg"
 
-const MinusSvg = props => (
+const MinusSvg = (props) => (
   <Svg
     width={16}
     height={16}
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    {...props}>
+    {...props}
+  >
     <Path
       d="M3.333 8h9.334"
       stroke="#7D849A"
@@ -16,6 +17,6 @@ const MinusSvg = props => (
       strokeLinejoin="round"
     />
   </Svg>
-);
+)
 
-export default MinusSvg;
+export default MinusSvg

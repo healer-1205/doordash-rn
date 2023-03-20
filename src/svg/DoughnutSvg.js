@@ -1,13 +1,14 @@
-import * as React from 'react';
-import Svg, {Path} from 'react-native-svg';
+import * as React from "react"
+import Svg, { Path } from "react-native-svg"
 
-const DoughnutSvg = props => (
+const DoughnutSvg = (props) => (
   <Svg
     width={50}
     height={50}
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    {...props}>
+    {...props}
+  >
     <Path
       d="M45.313 21.875c0-11.218-9.095-20.313-20.313-20.313-11.218 0-20.313 9.095-20.313 20.313v6.25c0 11.218 9.095 20.313 20.313 20.313 11.218 0 20.313-9.095 20.313-20.313v-6.25Z"
       fill="#F5871E"
@@ -193,6 +194,6 @@ const DoughnutSvg = props => (
       fill="#91C83C"
     />
   </Svg>
-);
+)
 
-export default DoughnutSvg;
+export default DoughnutSvg

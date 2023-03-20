@@ -1,13 +1,14 @@
-import * as React from 'react';
-import Svg, {Path} from 'react-native-svg';
+import * as React from "react"
+import Svg, { Path } from "react-native-svg"
 
-const ElementTwoSvg = props => (
+const ElementTwoSvg = (props) => (
   <Svg
     width={13}
     height={108}
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    {...props}>
+    {...props}
+  >
     <Path
       fillRule="evenodd"
       clipRule="evenodd"
@@ -15,6 +16,6 @@ const ElementTwoSvg = props => (
       fill="#fff"
     />
   </Svg>
-);
+)
 
-export default ElementTwoSvg;
+export default ElementTwoSvg

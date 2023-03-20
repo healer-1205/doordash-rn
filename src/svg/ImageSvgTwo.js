@@ -1,13 +1,14 @@
-import * as React from 'react';
-import Svg, {Circle, Path, Ellipse, G, Defs, ClipPath} from 'react-native-svg';
+import * as React from "react"
+import Svg, { Circle, Path, Ellipse, G, Defs, ClipPath } from "react-native-svg"
 
-const ImageSvgTwo = props => (
+const ImageSvgTwo = (props) => (
   <Svg
     width={297}
     height={297}
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    {...props}>
+    {...props}
+  >
     <Circle cx={148.5} cy={148.5} r={148.5} fill="#F3F7FF" />
     <Path
       d="M127.5 81c.5-1 .833-1.167 1-1.5h1.5s-1.833 1.333-1.5 3c.333 1.667 1.5 3.5 1.5 5s-1.5 3-1 5 .5 3.5 1 5.5 1.5 4 1 3-1.5-2-2-4 0-1.5-.5-4.5.5-3.5.5-5-.5-2-1-3-1-2.5-.5-3.5Z"
@@ -386,6 +387,6 @@ const ImageSvgTwo = props => (
       </ClipPath>
     </Defs>
   </Svg>
-);
+)
 
-export default ImageSvgTwo;
+export default ImageSvgTwo

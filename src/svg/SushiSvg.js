@@ -1,13 +1,14 @@
-import * as React from 'react';
-import Svg, {Path} from 'react-native-svg';
+import * as React from "react"
+import Svg, { Path } from "react-native-svg"
 
-const SushiSvg = props => (
+const SushiSvg = (props) => (
   <Svg
     width={50}
     height={50}
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    {...props}>
+    {...props}
+  >
     <Path
       d="M25 29.688a9.375 9.375 0 0 1-9.375-9.375v-9.375h18.75v9.374A9.375 9.375 0 0 1 25 29.688Z"
       fill="#555A6E"
@@ -117,6 +118,6 @@ const SushiSvg = props => (
       fill="#A5C3DC"
     />
   </Svg>
-);
+)
 
-export default SushiSvg;
+export default SushiSvg

@@ -1,13 +1,14 @@
-import * as React from 'react';
-import Svg, {Path} from 'react-native-svg';
+import * as React from "react"
+import Svg, { Path } from "react-native-svg"
 
-const SmallMapPin = props => (
+const SmallMapPin = (props) => (
   <Svg
     width={12}
     height={12}
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    {...props}>
+    {...props}
+  >
     <Path
       d="M10.5 5c0 3.5-4.5 6.5-4.5 6.5S1.5 8.5 1.5 5a4.5 4.5 0 0 1 9 0Z"
       stroke="#222"
@@ -21,6 +22,6 @@ const SmallMapPin = props => (
       strokeLinejoin="round"
     />
   </Svg>
-);
+)
 
-export default SmallMapPin;
+export default SmallMapPin

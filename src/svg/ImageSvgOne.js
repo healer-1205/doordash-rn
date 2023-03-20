@@ -1,13 +1,14 @@
-import * as React from 'react';
-import Svg, {Circle, Rect, Path} from 'react-native-svg';
+import * as React from "react"
+import Svg, { Circle, Rect, Path } from "react-native-svg"
 
-const ImageSvgOne = props => (
+const ImageSvgOne = (props) => (
   <Svg
     width={297}
     height={297}
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    {...props}>
+    {...props}
+  >
     <Circle cx={148.5} cy={148.5} r={148.5} fill="#F3F7FF" />
     <Rect
       x={96.421}
@@ -295,6 +296,6 @@ const ImageSvgOne = props => (
       fill="#F9B8AF"
     />
   </Svg>
-);
+)
 
-export default ImageSvgOne;
+export default ImageSvgOne

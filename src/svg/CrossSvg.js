@@ -1,19 +1,21 @@
-import * as React from 'react';
-import Svg, {G, Path, Defs, ClipPath} from 'react-native-svg';
+import * as React from "react"
+import Svg, { G, Path, Defs, ClipPath } from "react-native-svg"
 
-const CrossSvg = props => (
+const CrossSvg = (props) => (
   <Svg
     width={25}
     height={26}
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    {...props}>
+    {...props}
+  >
     <G
       clipPath="url(#a)"
       stroke="#7D849A"
       strokeWidth={1.5}
       strokeLinecap="round"
-      strokeLinejoin="round">
+      strokeLinejoin="round"
+    >
       <Path d="m7.52 7.864 9.9 9.9M7.52 17.763l9.9-9.9" />
     </G>
     <Defs>
@@ -26,6 +28,6 @@ const CrossSvg = props => (
       </ClipPath>
     </Defs>
   </Svg>
-);
+)
 
-export default CrossSvg;
+export default CrossSvg

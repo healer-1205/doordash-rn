@@ -1,13 +1,14 @@
-import * as React from 'react';
-import Svg, {Circle, Path} from 'react-native-svg';
+import * as React from "react"
+import Svg, { Circle, Path } from "react-native-svg"
 
-const EmptySvg = props => (
+const EmptySvg = (props) => (
   <Svg
     width={297}
     height={297}
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    {...props}>
+    {...props}
+  >
     <Circle cx={148.5} cy={148.5} r={148.5} fill="#F3F7FF" />
     <Path
       d="M180.333 177.439 148.5 158.714l31.833-18.555 31.834-18.726L244 140.159l-31.833 18.555-31.834 18.725Z"
@@ -42,6 +43,6 @@ const EmptySvg = props => (
       fill="#77411B"
     />
   </Svg>
-);
+)
 
-export default EmptySvg;
+export default EmptySvg

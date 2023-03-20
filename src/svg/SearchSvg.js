@@ -1,7 +1,7 @@
-import * as React from 'react';
-import Svg, {Path} from 'react-native-svg';
+import * as React from "react"
+import Svg, { Path } from "react-native-svg"
 
-const SearchSvg = ({color}) => (
+const SearchSvg = ({ color }) => (
   <Svg width={21} height={21} fill="none" xmlns="http://www.w3.org/2000/svg">
     <Path
       fillRule="evenodd"
@@ -16,6 +16,6 @@ const SearchSvg = ({color}) => (
       fill={color}
     />
   </Svg>
-);
+)
 
-export default SearchSvg;
+export default SearchSvg
