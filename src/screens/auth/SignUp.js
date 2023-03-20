@@ -3,11 +3,17 @@ import React from "react"
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scrollview"
 import { useNavigation } from "@react-navigation/native"
 
-import { AndroidSafeArea, COLORS, FONTS, SIZES } from "../constants"
-import { Button, InputField } from "../components"
-import { FacebookSvg, TwitterSvg, GoogleSvg, CheckSvg, EyeOffSvg } from "../svg"
+import { AndroidSafeArea, COLORS, FONTS, SIZES } from "../../constants"
+import { Button, InputField } from "../../components"
+import {
+  FacebookSvg,
+  TwitterSvg,
+  GoogleSvg,
+  CheckSvg,
+  EyeOffSvg,
+} from "../../svg"
 
-export default function SignIn() {
+export default function SignUp() {
   const navigation = useNavigation()
 
   function renderContent() {
@@ -17,9 +23,8 @@ export default function SignIn() {
           flexGrow: 1,
           paddingHorizontal: 16,
           paddingTop: SIZES.paddingTop,
-          paddingBottom: 30,
+          paddingBottom: 20,
         }}
-        showVerticalScrollIndicator={false}
       >
         <Text
           style={{
@@ -28,8 +33,14 @@ export default function SignIn() {
             color: COLORS.black,
           }}
         >
-          Sign in
+          Sign up
         </Text>
+        <InputField
+          containerStyle={{ marginBottom: 30 }}
+          title="name"
+          placeholder="Darlene Robertson"
+          icon={<CheckSvg />}
+        />
         <InputField
           containerStyle={{ marginBottom: 30 }}
           title="email"
@@ -37,7 +48,7 @@ export default function SignIn() {
           icon={<CheckSvg />}
         />
         <InputField
-          containerStyle={{ marginBottom: 20 }}
+          containerStyle={{ marginBottom: 30 }}
           title="password"
           placeholder="••••••••"
           secureTextEntry={true}
@@ -47,35 +58,47 @@ export default function SignIn() {
             </TouchableOpacity>
           }
         />
-        <TouchableOpacity onPress={() => navigation.navigate("ForgotPassword")}>
-          <Text
-            style={{
-              marginBottom: 23,
-              textAlign: "right",
-              ...FONTS.bodyText,
-              color: COLORS.carrot,
-              lineHeight: 16 * 1.5,
-            }}
-          >
-            Forgot your password?
-          </Text>
-        </TouchableOpacity>
+        <InputField
+          containerStyle={{ marginBottom: 30 }}
+          title="confirm password"
+          placeholder="••••••••"
+          secureTextEntry={true}
+          icon={
+            <TouchableOpacity>
+              <EyeOffSvg />
+            </TouchableOpacity>
+          }
+        />
 
         <Button
-          title="sign in"
+          title="sign up"
           containerStyle={{ marginBottom: 20 }}
-          onPress={() => navigation.navigate("MainLayout")}
+          onPress={() => navigation.navigate("VerifyPhoneNumber")}
         />
-        <Button
-          title="create account"
-          containerStyle={{
-            marginBottom: 20,
-            backgroundColor: COLORS.lightBlue,
-            marginBottom: SIZES.height * 0.1,
+        <View
+          style={{
+            flexDirection: "row",
+            alignItems: "center",
+            marginBottom: 63,
           }}
-          textStyle={{ color: COLORS.black }}
-          onPress={() => navigation.navigate("SignUp")}
-        />
+        >
+          <Text style={{ color: COLORS.gray, ...FONTS.bodyText }}>
+            Already have an account?{" "}
+          </Text>
+          <TouchableOpacity onPress={() => navigation.navigate("SignIn")}>
+            <Text
+              style={{
+                textAlign: "right",
+                ...FONTS.bodyText,
+                color: COLORS.carrot,
+                lineHeight: 16 * 1.5,
+              }}
+            >
+              Sign in.
+            </Text>
+          </TouchableOpacity>
+        </View>
+
         <View
           style={{
             flexDirection: "row",

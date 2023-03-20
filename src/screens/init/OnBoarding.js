@@ -12,7 +12,7 @@ import {
 import React, { useState, useRef } from "react"
 import { useNavigation } from "@react-navigation/native"
 
-import { COLORS, SIZES, FONTS, AndroidSafeArea } from "../constants"
+import { COLORS, SIZES, FONTS, AndroidSafeArea } from "../../constants"
 // import {
 //   ImageSvgOne,
 //   ImageSvgTwo,
@@ -144,7 +144,7 @@ export default function OnBoarding() {
         )} */}
         {/* end showing Skip button */}
         <Image
-          source={require("../assets/images/home.png")}
+          source={require("../../assets/images/home.png")}
           style={[styles.image]}
         />
         <Text
@@ -171,7 +171,7 @@ export default function OnBoarding() {
             style={[styles.grayButtonContainer]}
           >
             <Image
-              source={require("../assets/images/socials/google.png")}
+              source={require("../../assets/images/socials/google.png")}
               style={[styles.socialIcon]}
             />
             <Text style={[styles.grayButtonText]}>Continue with Google</Text>
@@ -181,7 +181,7 @@ export default function OnBoarding() {
             style={[styles.grayButtonContainer]}
           >
             <Image
-              source={require("../assets/images/socials/facebook.png")}
+              source={require("../../assets/images/socials/facebook.png")}
               style={[styles.socialIcon]}
             />
             <Text style={[styles.grayButtonText]}>Continue with Facebook</Text>
@@ -191,7 +191,7 @@ export default function OnBoarding() {
             style={[styles.grayButtonContainer]}
           >
             <Image
-              source={require("../assets/images/socials/apple.png")}
+              source={require("../../assets/images/socials/apple.png")}
               style={[styles.socialIcon]}
             />
             <Text style={[styles.grayButtonText]}>Continue with Apple</Text>

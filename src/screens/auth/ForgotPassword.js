@@ -3,8 +3,8 @@ import React from "react"
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scrollview"
 import { useNavigation } from "@react-navigation/native"
 
-import { AndroidSafeArea, COLORS, FONTS } from "../constants"
-import { Button, InputField, Header } from "../components"
+import { AndroidSafeArea, COLORS, FONTS } from "../../constants"
+import { Button, InputField, Header } from "../../components"
 
 export default function ForgotPassword() {
   const navigation = useNavigation()
