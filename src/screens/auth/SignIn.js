@@ -1,5 +1,13 @@
-import { View, Text, TouchableOpacity, SafeAreaView } from "react-native"
-import React from "react"
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  SafeAreaView,
+  FlatList,
+  StyleSheet,
+  Image,
+} from "react-native"
+import React, { useState } from "react"
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scrollview"
 import { useNavigation } from "@react-navigation/native"
 
@@ -13,8 +21,20 @@ import {
   EyeOffSvg,
 } from "../../svg"
 
+const categories = [
+  {
+    id: "1",
+    category: "SignIn",
+  },
+  {
+    id: "2",
+    category: "SignUp",
+  },
+]
+
 export default function SignIn() {
   const navigation = useNavigation()
+  const [category, setCategory] = useState("SignIn")
 
   function renderContent() {
     return (
@@ -22,44 +42,157 @@ export default function SignIn() {
         contentContainerStyle={{
           flexGrow: 1,
           paddingHorizontal: 16,
-          paddingTop: SIZES.paddingTop,
+          paddingTop: 30,
           paddingBottom: 30,
         }}
         showVerticalScrollIndicator={false}
       >
-        <Text
+        <View style={{ alignItems: "center" }}>
+          <FlatList
+            data={categories}
+            keyExtractor={(item) => item.id.toString()}
+            horizontal={true}
+            contentContainerStyle={{ paddingLeft: 16 }}
+            showsHorizontalScrollIndicator={false}
+            renderItem={({ item }) => (
+              <TouchableOpacity
+                style={{
+                  backgroundColor:
+                    category === item.category ? "#333333" : "#F3F7FF",
+                  height: 35,
+                  justifyContent: "center",
+                  alignItems: "center",
+                  borderRadius: 50,
+                  marginRight: 8,
+                }}
+                onPress={() => {
+                  setCategory(item.category)
+                  navigation.navigate(item.category)
+                }}
+              >
+                <Text
+                  style={{
+                    paddingHorizontal: 20,
+                    ...FONTS.Lato_900Black,
+                    fontSize: 16,
+                    color:
+                      category === item.category ? COLORS.white : COLORS.gray,
+                  }}
+                >
+                  {item.category}
+                </Text>
+              </TouchableOpacity>
+            )}
+          />
+        </View>
+        <View style={{ backgroundColor: "#aef2ef", marginTop: 30 }}>
+          <Text
+            style={{
+              ...FONTS.bodyText,
+              textAlign: "center",
+              paddingVertical: 15,
+            }}
+          >
+            Sign in to access your credits and discounts
+          </Text>
+        </View>
+        {/* social signin buttons */}
+        <View
           style={{
-            marginBottom: 54,
-            ...FONTS.H1,
-            color: COLORS.black,
+            borderBottomWidth: 1,
+            borderBottomColor: "#dddddd",
           }}
         >
-          Sign in
-        </Text>
+          <TouchableOpacity
+            onPress={() => navigation.navigate("SignIn")}
+            style={{
+              backgroundColor: "#4287f5",
+              paddingVertical: 15,
+              borderRadius: 20,
+              marginTop: 30,
+              marginBottom: 20,
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <Image
+              source={require("../../assets/images/socials/google.png")}
+              style={[styles.socialIcon]}
+            />
+            <Text style={[styles.buttonText]}>Continue with Google</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => navigation.navigate("SignIn")}
+            style={{
+              backgroundColor: "#1c4f63",
+              paddingVertical: 15,
+              borderRadius: 20,
+              marginBottom: 20,
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <Image
+              source={require("../../assets/images/socials/facebook.png")}
+              style={[styles.socialIcon]}
+            />
+            <Text style={[styles.buttonText]}>Continue with Facebook</Text>
+          </TouchableOpacity>
+          <Text
+            style={{ textAlign: "center", ...FONTS.bodyText, marginBottom: 10 }}
+          >
+            or continue with email
+          </Text>
+        </View>
+        {/* end social signin buttons */}
+
         <InputField
-          containerStyle={{ marginBottom: 30 }}
-          title="email"
-          placeholder="darlenerobertson@mail.com"
-          icon={<CheckSvg />}
+          containerStyle={{ marginBottom: 30, marginTop: 30 }}
+          title="Email"
+          placeholder=""
+          fontWeight="bold"
+          textColor={COLORS.black}
+          fieldStyle={{
+            backgroundColor: COLORS.lightGray,
+            borderRadius: 10,
+            marginTop: 10,
+          }}
         />
         <InputField
-          containerStyle={{ marginBottom: 20 }}
-          title="password"
-          placeholder="••••••••"
+          containerStyle={{ marginBottom: 20, marginTop: 10 }}
+          title="Password"
+          placeholder=""
+          fontWeight="bold"
+          textColor={COLORS.black}
           secureTextEntry={true}
+          fieldStyle={{
+            backgroundColor: COLORS.lightGray,
+            borderRadius: 10,
+            marginTop: 10,
+          }}
           icon={
-            <TouchableOpacity>
-              <EyeOffSvg />
-            </TouchableOpacity>
+            <Text
+              style={{
+                fontSize: 16,
+                fontWeight: "bold",
+                color: COLORS.black,
+                marginRight: 10,
+              }}
+            >
+              Show
+            </Text>
           }
         />
         <TouchableOpacity onPress={() => navigation.navigate("ForgotPassword")}>
           <Text
             style={{
-              marginBottom: 23,
-              textAlign: "right",
+              marginBottom: 20,
+              marginTop: 20,
+              textAlign: "left",
               ...FONTS.bodyText,
-              color: COLORS.carrot,
+              color: COLORS.gray,
               lineHeight: 16 * 1.5,
             }}
           >
@@ -68,11 +201,12 @@ export default function SignIn() {
         </TouchableOpacity>
 
         <Button
-          title="sign in"
-          containerStyle={{ marginBottom: 20 }}
+          title="Sign In"
+          containerStyle={{ marginBottom: 20, backgroundColor: "#ff0000" }}
+          textStyle={{ fontWeight: "bold", fontSize: 18 }}
           onPress={() => navigation.navigate("MainLayout")}
         />
-        <Button
+        {/* <Button
           title="create account"
           containerStyle={{
             marginBottom: 20,
@@ -81,25 +215,7 @@ export default function SignIn() {
           }}
           textStyle={{ color: COLORS.black }}
           onPress={() => navigation.navigate("SignUp")}
-        />
-        <View
-          style={{
-            flexDirection: "row",
-            alignItems: "center",
-            justifyContent: "center",
-            marginBottom: 30,
-          }}
-        >
-          <TouchableOpacity style={{ marginHorizontal: 7.5 }}>
-            <FacebookSvg />
-          </TouchableOpacity>
-          <TouchableOpacity style={{ marginHorizontal: 7.5 }}>
-            <TwitterSvg />
-          </TouchableOpacity>
-          <TouchableOpacity style={{ marginHorizontal: 7.5 }}>
-            <GoogleSvg />
-          </TouchableOpacity>
-        </View>
+        /> */}
       </KeyboardAwareScrollView>
     )
   }
@@ -110,3 +226,17 @@ export default function SignIn() {
     </SafeAreaView>
   )
 }
+
+const styles = StyleSheet.create({
+  socialIcon: {
+    width: 25,
+    height: 25,
+    marginRight: 10,
+  },
+  buttonText: {
+    textAlign: "center",
+    ...FONTS.Button_Text,
+    color: COLORS.white,
+    fontWeight: "bold",
+  },
+})

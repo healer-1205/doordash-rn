@@ -21,7 +21,6 @@ export default function Button({ title, containerStyle, onPress, textStyle }) {
           color: COLORS.white,
           textAlign: "center",
           fontSize: 14,
-          textTransform: "uppercase",
           ...textStyle,
           fontFamily: "Lato-Regular",
         }}

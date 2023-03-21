@@ -371,13 +371,13 @@ const styles = StyleSheet.create({
   },
   redButtonText: {
     textAlign: "center",
-    ...FONTS.Home_Button_Text,
+    ...FONTS.Button_Text,
     color: COLORS.white,
     fontWeight: "bold",
   },
   grayButtonText: {
     textAlign: "center",
-    ...FONTS.Home_Button_Text,
+    ...FONTS.Button_Text,
     color: COLORS.black,
     fontWeight: "bold",
   },

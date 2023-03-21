@@ -9,6 +9,9 @@ export default function InputField({
   icon,
   title,
   secureTextEntry,
+  fontWeight,
+  textColor,
+  fieldStyle,
 }) {
   return (
     <View
@@ -21,11 +24,9 @@ export default function InputField({
       <Text
         style={{
           marginBottom: 2,
-          textTransform: "uppercase",
-          color: COLORS.gray,
-          fontSize: 12,
-          lineHeight: 12 * 1,
+          color: textColor,
           ...FONTS.fieldLabel,
+          fontWeight: fontWeight,
         }}
       >
         {title}
@@ -35,8 +36,7 @@ export default function InputField({
           flexDirection: "row",
           alignItems: "center",
           justifyContent: "space-between",
-          borderBottomWidth: 1,
-          borderBottomColor: COLORS.lightGray,
+          ...fieldStyle,
         }}
       >
         <TextInput
@@ -45,7 +45,7 @@ export default function InputField({
             flex: 1,
             paddingRight: 15,
             flex: 1,
-            paddingVertical: 4,
+            paddingVertical: 8,
             fontSize: 16,
             fontFamily: "Lato-Regular",
           }}

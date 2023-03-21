@@ -37,9 +37,9 @@ export const FONTS = {
   H1_Lato_700Bold: { fontSize: 40, fontFamily: "Lato-Regular" },
 
   bodyText: { fontSize: 16, fontFamily: "Lato-Regular" },
-  fieldLabel: { fontSize: 12, fontFamily: "Lato-Regular" },
+  fieldLabel: { fontSize: 16, fontFamily: "Lato-Regular" },
 
-  Home_Button_Text: { fontSize: 18, fontFamily: "Lato-Regular" },
+  Button_Text: { fontSize: 18, fontFamily: "Lato-Regular" },
 }
 
 export const AndroidSafeArea = {
