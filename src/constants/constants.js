@@ -40,4 +40,15 @@ const categories = [
   },
 ]
 
-export { creditCards, categories }
+const authCategories = [
+  {
+    id: "1",
+    category: "SignIn",
+  },
+  {
+    id: "2",
+    category: "SignUp",
+  },
+]
+
+export { creditCards, categories, authCategories }

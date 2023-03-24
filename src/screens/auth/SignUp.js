@@ -1,9 +1,22 @@
-import { View, Text, TouchableOpacity, SafeAreaView } from "react-native"
-import React from "react"
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  SafeAreaView,
+  FlatList,
+  Linking,
+} from "react-native"
+import React, { useState } from "react"
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scrollview"
 import { useNavigation } from "@react-navigation/native"
 
-import { AndroidSafeArea, COLORS, FONTS, SIZES } from "../../constants"
+import {
+  AndroidSafeArea,
+  COLORS,
+  FONTS,
+  SIZES,
+  authCategories,
+} from "../../constants"
 import { Button, InputField } from "../../components"
 import {
   FacebookSvg,
@@ -22,58 +35,195 @@ export default function SignUp() {
         contentContainerStyle={{
           flexGrow: 1,
           paddingHorizontal: 16,
-          paddingTop: SIZES.paddingTop,
-          paddingBottom: 20,
+          paddingTop: 30,
+          paddingBottom: 30,
         }}
       >
-        <Text
-          style={{
-            marginBottom: 54,
-            ...FONTS.H1,
-            color: COLORS.black,
+        <View style={{ alignItems: "center" }}>
+          <FlatList
+            data={authCategories}
+            keyExtractor={(item) => item.id.toString()}
+            horizontal={true}
+            contentContainerStyle={{ paddingLeft: 16 }}
+            showsHorizontalScrollIndicator={false}
+            renderItem={({ item }) => (
+              <TouchableOpacity
+                style={{
+                  backgroundColor:
+                    item.category === "SignUp" ? "#333333" : "#F3F7FF",
+                  height: 35,
+                  justifyContent: "center",
+                  alignItems: "center",
+                  borderRadius: 50,
+                  marginRight: 8,
+                }}
+                onPress={() => {
+                  navigation.navigate(item.category)
+                }}
+              >
+                <Text
+                  style={{
+                    paddingHorizontal: 20,
+                    ...FONTS.Lato_900Black,
+                    fontSize: 16,
+                    color:
+                      item.category === "SignUp" ? COLORS.white : COLORS.gray,
+                  }}
+                >
+                  {item.category}
+                </Text>
+              </TouchableOpacity>
+            )}
+          />
+        </View>
+        <View style={{ backgroundColor: "#aef2ef", marginTop: 30 }}>
+          <Text
+            style={{
+              ...FONTS.bodyText,
+              textAlign: "center",
+              paddingVertical: 15,
+            }}
+          >
+            Sign up and get up to 40% off your first order
+          </Text>
+        </View>
+        <View style={{ flexDirection: "row" }}>
+          <InputField
+            containerStyle={{
+              marginBottom: 30,
+              marginTop: 30,
+              width: "50%",
+              paddingRight: 5,
+            }}
+            title="First Name"
+            placeholder=""
+            fontWeight="bold"
+            textColor={COLORS.black}
+            fieldStyle={{
+              backgroundColor: COLORS.lightGray,
+              borderRadius: 10,
+              marginTop: 10,
+            }}
+          />
+          <InputField
+            containerStyle={{
+              marginBottom: 30,
+              marginTop: 30,
+              width: "50%",
+              paddingLeft: 5,
+            }}
+            title="Last Name"
+            placeholder=""
+            fontWeight="bold"
+            textColor={COLORS.black}
+            fieldStyle={{
+              backgroundColor: COLORS.lightGray,
+              borderRadius: 10,
+              marginTop: 10,
+            }}
+          />
+        </View>
+        <InputField
+          containerStyle={{ marginBottom: 30, marginTop: 10 }}
+          title="Email"
+          placeholder=""
+          fontWeight="bold"
+          textColor={COLORS.black}
+          fieldStyle={{
+            backgroundColor: COLORS.lightGray,
+            borderRadius: 10,
+            marginTop: 10,
           }}
+        />
+        <View style={{ flexDirection: "row", marginTop: 10 }}>
+          <InputField
+            containerStyle={{
+              marginBottom: 30,
+              width: "40%",
+              paddingRight: 5,
+            }}
+            title="Country"
+            placeholder=""
+            fontWeight="bold"
+            textColor={COLORS.black}
+            fieldStyle={{
+              backgroundColor: COLORS.lightGray,
+              borderRadius: 10,
+              marginTop: 10,
+            }}
+          />
+          <InputField
+            containerStyle={{
+              marginBottom: 30,
+              width: "60%",
+              paddingLeft: 5,
+            }}
+            title="Mobile Number"
+            placeholder=""
+            fontWeight="bold"
+            textColor={COLORS.black}
+            fieldStyle={{
+              backgroundColor: COLORS.lightGray,
+              borderRadius: 10,
+              marginTop: 10,
+            }}
+          />
+        </View>
+        <InputField
+          containerStyle={{ marginBottom: 20, marginTop: 10 }}
+          title="Password"
+          placeholder=""
+          fontWeight="bold"
+          textColor={COLORS.black}
+          secureTextEntry={true}
+          fieldStyle={{
+            backgroundColor: COLORS.lightGray,
+            borderRadius: 10,
+            marginTop: 10,
+          }}
+          icon={
+            <Text
+              style={{
+                fontSize: 16,
+                fontWeight: "bold",
+                color: COLORS.black,
+                marginRight: 10,
+              }}
+            >
+              Show
+            </Text>
+          }
+        />
+        <Text
+          style={{ ...FONTS.bodyText, marginVertical: 20, textAlign: "center" }}
         >
-          Sign up
+          By tapping "Sign Up" or "Continue with Google, Facebook, or Apple" you
+          agree to DoorDash's{" "}
+          <Text
+            style={{ color: "#0000ff" }}
+            onPress={() => {
+              Linking.openURL("https://www.google.com/")
+            }}
+          >
+            Terms and Conditions
+          </Text>{" "}
+          and{" "}
+          <Text
+            style={{ color: "#0000ff" }}
+            onPress={() => {
+              Linking.openURL("https://www.google.com/")
+            }}
+          >
+            Privacy Policy
+          </Text>
+          .
         </Text>
-        <InputField
-          containerStyle={{ marginBottom: 30 }}
-          title="name"
-          placeholder="Darlene Robertson"
-          icon={<CheckSvg />}
-        />
-        <InputField
-          containerStyle={{ marginBottom: 30 }}
-          title="email"
-          placeholder="darlenerobertson@mail.com"
-          icon={<CheckSvg />}
-        />
-        <InputField
-          containerStyle={{ marginBottom: 30 }}
-          title="password"
-          placeholder="••••••••"
-          secureTextEntry={true}
-          icon={
-            <TouchableOpacity>
-              <EyeOffSvg />
-            </TouchableOpacity>
-          }
-        />
-        <InputField
-          containerStyle={{ marginBottom: 30 }}
-          title="confirm password"
-          placeholder="••••••••"
-          secureTextEntry={true}
-          icon={
-            <TouchableOpacity>
-              <EyeOffSvg />
-            </TouchableOpacity>
-          }
-        />
 
         <Button
-          title="sign up"
-          containerStyle={{ marginBottom: 20 }}
-          onPress={() => navigation.navigate("VerifyPhoneNumber")}
+          title="Sign Up"
+          containerStyle={{ marginBottom: 20, backgroundColor: "#ff0000" }}
+          textStyle={{ fontWeight: "bold", fontSize: 18 }}
+          onPress={() => navigation.navigate("MainLayout")}
         />
         <View
           style={{
@@ -99,7 +249,7 @@ export default function SignUp() {
           </TouchableOpacity>
         </View>
 
-        <View
+        {/* <View
           style={{
             flexDirection: "row",
             alignItems: "center",
@@ -116,7 +266,7 @@ export default function SignUp() {
           <TouchableOpacity style={{ marginHorizontal: 7.5 }}>
             <GoogleSvg />
           </TouchableOpacity>
-        </View>
+        </View> */}
       </KeyboardAwareScrollView>
     )
   }

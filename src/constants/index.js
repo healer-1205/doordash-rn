@@ -1,4 +1,4 @@
-import { creditCards, categories } from "./constants"
+import { creditCards, categories, authCategories } from "./constants"
 import { COLORS, SIZES, FONTS, AndroidSafeArea } from "./theme"
 import { dummyData, dishes } from "./dummyData"
 
@@ -11,4 +11,5 @@ export {
   AndroidSafeArea,
   dishes,
   categories,
+  authCategories,
 }

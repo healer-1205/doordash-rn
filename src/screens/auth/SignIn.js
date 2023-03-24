@@ -11,7 +11,13 @@ import React, { useState } from "react"
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scrollview"
 import { useNavigation } from "@react-navigation/native"
 
-import { AndroidSafeArea, COLORS, FONTS, SIZES } from "../../constants"
+import {
+  AndroidSafeArea,
+  COLORS,
+  FONTS,
+  SIZES,
+  authCategories,
+} from "../../constants"
 import { Button, InputField } from "../../components"
 import {
   FacebookSvg,
@@ -21,20 +27,8 @@ import {
   EyeOffSvg,
 } from "../../svg"
 
-const categories = [
-  {
-    id: "1",
-    category: "SignIn",
-  },
-  {
-    id: "2",
-    category: "SignUp",
-  },
-]
-
 export default function SignIn() {
   const navigation = useNavigation()
-  const [category, setCategory] = useState("SignIn")
 
   function renderContent() {
     return (
@@ -49,7 +43,7 @@ export default function SignIn() {
       >
         <View style={{ alignItems: "center" }}>
           <FlatList
-            data={categories}
+            data={authCategories}
             keyExtractor={(item) => item.id.toString()}
             horizontal={true}
             contentContainerStyle={{ paddingLeft: 16 }}
@@ -58,7 +52,7 @@ export default function SignIn() {
               <TouchableOpacity
                 style={{
                   backgroundColor:
-                    category === item.category ? "#333333" : "#F3F7FF",
+                    item.category === "SignIn" ? "#333333" : "#F3F7FF",
                   height: 35,
                   justifyContent: "center",
                   alignItems: "center",
@@ -66,7 +60,6 @@ export default function SignIn() {
                   marginRight: 8,
                 }}
                 onPress={() => {
-                  setCategory(item.category)
                   navigation.navigate(item.category)
                 }}
               >
@@ -76,7 +69,7 @@ export default function SignIn() {
                     ...FONTS.Lato_900Black,
                     fontSize: 16,
                     color:
-                      category === item.category ? COLORS.white : COLORS.gray,
+                      item.category === "SignIn" ? COLORS.white : COLORS.gray,
                   }}
                 >
                   {item.category}
