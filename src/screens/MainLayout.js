@@ -22,7 +22,7 @@ export default function MainLayout() {
       id: "1",
       screen: "Home",
       icon: (
-        <HomeSvg color={selectedTab == "Home" ? COLORS.green : COLORS.gray} />
+        <HomeSvg color={selectedTab == "Home" ? COLORS.carrot : COLORS.gray} />
       ),
     },
     {
@@ -30,7 +30,7 @@ export default function MainLayout() {
       screen: "Places",
       icon: (
         <PlaceSvg
-          color={selectedTab == "Places" ? COLORS.green : COLORS.gray}
+          color={selectedTab == "Places" ? COLORS.carrot : COLORS.gray}
         />
       ),
     },
@@ -53,7 +53,7 @@ export default function MainLayout() {
             style={{
               width: 64,
               height: 64,
-              backgroundColor: COLORS.green,
+              backgroundColor: COLORS.carrot,
               borderRadius: 35,
               justifyContent: "center",
               alignItems: "center",
@@ -79,7 +79,7 @@ export default function MainLayout() {
                   fontSize: 12,
                   color: COLORS.golden,
                   ...FONTS.Lato_900Black,
-                  color: COLORS.green,
+                  color: COLORS.carrot,
                 }}
               >
                 5
@@ -91,7 +91,7 @@ export default function MainLayout() {
               fontSize: 12,
               fontFamily: "Lato-Regular",
               textAlign: "center",
-              color: COLORS.green,
+              color: COLORS.carrot,
               position: "absolute",
               bottom: -15,
             }}
@@ -106,7 +106,7 @@ export default function MainLayout() {
       screen: "Favorite",
       icon: (
         <HeartSvg
-          color={selectedTab == "Favorite" ? COLORS.green : COLORS.gray}
+          color={selectedTab == "Favorite" ? COLORS.carrot : COLORS.gray}
         />
       ),
     },
@@ -115,7 +115,7 @@ export default function MainLayout() {
       screen: "Profile",
       icon: (
         <ProfileSvg
-          color={selectedTab == "Profile" ? COLORS.green : COLORS.gray}
+          color={selectedTab == "Profile" ? COLORS.carrot : COLORS.gray}
         />
       ),
     },
@@ -128,6 +128,7 @@ export default function MainLayout() {
       {selectedTab === "CartIsEmpty" && <CartIsEmpty />}
       {selectedTab === "Favorite" && <Favorite />}
       {selectedTab === "Profile" && <Profile />}
+      {/* start bottom navigation bar */}
       <Shadow
         offset={[0, 0]}
         distance={15}
@@ -173,18 +174,6 @@ export default function MainLayout() {
                   </View>
                   {item.screen !== "CartIsEmpty" && (
                     <View style={{ alignItems: "center" }}>
-                      <View
-                        style={{
-                          width: 4,
-                          height: 4,
-                          borderRadius: 2,
-                          backgroundColor:
-                            selectedTab == item.screen
-                              ? COLORS.green
-                              : COLORS.transparent,
-                          marginTop: 4,
-                        }}
-                      />
                       <Text
                         style={{
                           textAlign: "center",
@@ -193,7 +182,7 @@ export default function MainLayout() {
                           fontFamily: "Lato-Regular",
                           color:
                             selectedTab == item.screen
-                              ? COLORS.green
+                              ? COLORS.carrot
                               : COLORS.gray,
                         }}
                       >
@@ -207,6 +196,7 @@ export default function MainLayout() {
           })}
         </View>
       </Shadow>
+      {/* end bottom navigation bar */}
     </View>
   )
 }
