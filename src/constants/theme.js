@@ -35,9 +35,10 @@ export const FONTS = {
   Lato_900Black: { fontFamily: "Lato-Black" },
 
   H1_Lato_700Bold: { fontSize: 40, fontFamily: "Lato-Regular" },
+  H2_Lato_700Bold: { fontSize: 32, fontFamily: "Lato-Regular" },
 
   bodyText: { fontSize: 16, fontFamily: "Lato-Regular" },
-  fieldLabel: { fontSize: 16, fontFamily: "Lato-Regular" },
+  fieldLabel: { fontSize: 18, fontFamily: "Lato-Regular" },
 
   Button_Text: { fontSize: 18, fontFamily: "Lato-Regular" },
 }

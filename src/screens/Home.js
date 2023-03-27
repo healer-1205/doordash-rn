@@ -28,6 +28,7 @@ import {
   SushiSvg,
   DoughnutSvg,
   FreeFromSvg,
+  PickUpSvg,
 } from "../svg"
 
 const categories = [
@@ -55,6 +56,61 @@ const categories = [
     id: "5",
     category: "Deserts",
     icon: <DoughnutSvg />,
+  },
+]
+
+const foods = [
+  {
+    id: "1",
+    category: "Burger",
+    icon: <BurgerSvg />,
+  },
+  {
+    id: "2",
+    category: "Salads",
+    icon: <GuacamoleSvg />,
+  },
+  {
+    id: "3",
+    category: "Pizza",
+    icon: <PizzaSvg />,
+  },
+  {
+    id: "4",
+    category: "Sushi",
+    icon: <SushiSvg />,
+  },
+  {
+    id: "5",
+    category: "Deserts",
+    icon: <DoughnutSvg />,
+  },
+]
+
+const functionButtons = [
+  {
+    id: "1",
+    category: "Offers",
+  },
+  {
+    id: "2",
+    category: "Pickup",
+  },
+  {
+    id: "3",
+    category: "Ratings",
+  },
+  {
+    id: "4",
+    category: "Under 30 min",
+  },
+  {
+    id: "5",
+    category: "Price",
+  },
+  {
+    id: "6",
+    category: "DashPass",
   },
 ]
 
@@ -100,7 +156,13 @@ export default function Home() {
 
   function renderCategories() {
     return (
-      <View style={{ top: -36 }}>
+      <View
+        style={{
+          paddingTop: 30,
+          borderBottomWidth: 1,
+          borderBottomColor: COLORS.lightGray,
+        }}
+      >
         <FlatList
           data={categories}
           horizontal={true}
@@ -166,10 +228,136 @@ export default function Home() {
     )
   }
 
-  function renderHotOffers() {
+  function renderFoods() {
     return (
-      <View style={{ top: -25, marginBottom: 5 }}>
-        <View
+      <View style={{ paddingTop: 20 }}>
+        <FlatList
+          data={foods}
+          horizontal={true}
+          keyExtractor={(item) => item.id.toString()}
+          contentContainerStyle={{
+            paddingLeft: 16,
+            paddingBottom: 15,
+          }}
+          showsHorizontalScrollIndicator={false}
+          renderItem={({ item }) => (
+            <View
+              style={{
+                marginRight: 10,
+              }}
+            >
+              <Shadow
+                offset={[0, 0]}
+                distance={10}
+                startColor={"rgba(6, 38, 100, 0.05)"}
+                finalColor={"rgba(6, 38, 100, 0.0)"}
+              >
+                <TouchableOpacity
+                  style={{
+                    width: 63,
+                    height: 63,
+                    backgroundColor: COLORS.white,
+                    borderRadius: 20,
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                  onPress={() => setCategory(item.category)}
+                >
+                  <View
+                    style={{
+                      width: 40,
+                      height: 40,
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    {item.icon}
+                  </View>
+                </TouchableOpacity>
+              </Shadow>
+              <Text
+                style={{
+                  textAlign: "center",
+                  marginTop: 8,
+                  color:
+                    category === item.category ? COLORS.green : COLORS.gray,
+                  ...FONTS.Lato_400Regular,
+                  fontSize: 14,
+                  lineHeight: 14 * 1.5,
+                  textTransform: "capitalize",
+                }}
+              >
+                {item.category}
+              </Text>
+            </View>
+          )}
+        />
+      </View>
+    )
+  }
+
+  function renderFunctionButtons() {
+    return (
+      <View style={{ paddingTop: 20, marginBottom: 5 }}>
+        <FlatList
+          data={functionButtons}
+          horizontal={true}
+          keyExtractor={(item) => item.id.toString()}
+          contentContainerStyle={{
+            paddingLeft: 16,
+            paddingBottom: 15,
+          }}
+          showsHorizontalScrollIndicator={false}
+          renderItem={({ item }) => (
+            <View
+              style={{
+                marginRight: 10,
+              }}
+            >
+              <TouchableOpacity
+                style={{
+                  height: 40,
+                  backgroundColor: COLORS.lightGray,
+                  borderRadius: 20,
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+                onPress={() => setCategory(item.category)}
+              >
+                <View
+                  style={{
+                    justifyContent: "center",
+                    alignItems: "center",
+                    paddingHorizontal: 20,
+                  }}
+                >
+                  <Text
+                    style={{
+                      textAlign: "center",
+                      color:
+                        category === item.category
+                          ? COLORS.white
+                          : COLORS.black,
+                      ...FONTS.Button_Text,
+                      fontWeight: "bold",
+                      textTransform: "capitalize",
+                    }}
+                  >
+                    {item.category}
+                  </Text>
+                </View>
+              </TouchableOpacity>
+            </View>
+          )}
+        />
+      </View>
+    )
+  }
+
+  function renderSliders() {
+    return (
+      <View style={{ marginBottom: 5 }}>
+        {/* <View
           style={{
             flexDirection: "row",
             alignItems: "center",
@@ -186,7 +374,7 @@ export default function Home() {
           <TouchableOpacity onPress={() => navigation.navigate("AllOffers")}>
             <ViewAllSvg />
           </TouchableOpacity>
-        </View>
+        </View> */}
         <FlatList
           data={dummyData}
           horizontal={true}
@@ -196,9 +384,9 @@ export default function Home() {
             return (
               <TouchableOpacity>
                 <Image
-                  source={item.offer}
+                  source={require("../assets/images/sliders/slider1.jpg")}
                   style={{
-                    width: 323,
+                    width: 380,
                     height: 160,
                     marginRight: 10,
                     borderRadius: 20,
@@ -212,11 +400,81 @@ export default function Home() {
     )
   }
 
-  function renderPopularRestaurants() {
+  function renderNearbyRestaurants() {
     return (
-      <View style={{ paddingHorizontal: 16 }}>
-        <Text style={{ ...FONTS.H2, marginBottom: 8, color: COLORS.black }}>
-          Popular Restaurants
+      <View style={{ paddingHorizontal: 16, paddingTop: 10 }}>
+        <Text
+          style={{
+            ...FONTS.H2_Lato_700Bold,
+            color: COLORS.black,
+            fontWeight: "bold",
+          }}
+        >
+          Nearby Restaurants for $0
+        </Text>
+        <Text
+          style={{
+            ...FONTS.H2_Lato_700Bold,
+            marginBottom: 8,
+            color: COLORS.black,
+            fontWeight: "bold",
+          }}
+        >
+          Delivery Fee
+        </Text>
+        <FlatList
+          data={dummyData}
+          horizontal={true}
+          contentContainerStyle={{}}
+          showsHorizontalScrollIndicator={false}
+          renderItem={({ item, index }) => {
+            return (
+              <TouchableOpacity>
+                <Image
+                  source={require("../assets/images/sliders/slider2.jpg")}
+                  style={{
+                    width: 380,
+                    height: 160,
+                    marginRight: 10,
+                    borderRadius: 20,
+                  }}
+                />
+                <Text
+                  style={{
+                    ...FONTS.fieldLabel,
+                    fontWeight: "bold",
+                    color: COLORS.black,
+                  }}
+                >
+                  Bluestone Lane
+                </Text>
+                <Text
+                  style={{
+                    ...FONTS.fieldLabel,
+                    fontWeight: "bold",
+                  }}
+                >
+                  Sponsored
+                </Text>
+              </TouchableOpacity>
+            )
+          }}
+        />
+      </View>
+    )
+  }
+
+  function renderWalletFriendly() {
+    return (
+      <View style={{ paddingHorizontal: 16, paddingTop: 10 }}>
+        <Text
+          style={{
+            ...FONTS.H2_Lato_700Bold,
+            color: COLORS.black,
+            fontWeight: "bold",
+          }}
+        >
+          Wallet Friendly
         </Text>
         {dummyData.map((item, index) => {
           return (
@@ -244,14 +502,14 @@ export default function Home() {
                   }
                 >
                   <ImageBackground
-                    source={item.photo_426x420}
+                    source={require("../assets/images/mock/food1.jpg")}
                     style={{ width: 142, height: "100%" }}
                     imageStyle={{
                       borderTopLeftRadius: 20,
                       borderBottomLeftRadius: 20,
                     }}
                   >
-                    <View
+                    {/* <View
                       style={{
                         height: 26,
                         backgroundColor: COLORS.carrot,
@@ -275,7 +533,7 @@ export default function Home() {
                       >
                         {item.rating}
                       </Text>
-                    </View>
+                    </View> */}
                     <View
                       style={{
                         position: "absolute",
@@ -294,10 +552,11 @@ export default function Home() {
                   >
                     <Text
                       style={{
-                        ...FONTS.H4,
+                        ...FONTS.fieldLabel,
                         textTransform: "capitalize",
                         lineHeight: 24 * 1.2,
                         color: COLORS.black,
+                        fontWeight: "bold",
                       }}
                       numberOfLines={1}
                     >
@@ -373,10 +632,13 @@ export default function Home() {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ flexGrow: 1, paddingBottom: 20 }}
       >
-        {renderHeader()}
+        {/* {renderHeader()} */}
         {renderCategories()}
-        {renderHotOffers()}
-        {renderPopularRestaurants()}
+        {renderFoods()}
+        {renderFunctionButtons()}
+        {renderSliders()}
+        {renderNearbyRestaurants()}
+        {renderWalletFriendly()}
       </ScrollView>
     </View>
   )

@@ -67,6 +67,8 @@ import ClipboardSvg from "./ClipboardSvg"
 import SmallMapPinTwo from "./SmallMapPinTwo"
 import CreditCardTwoSvg from "./CreditCardTwoSvg"
 import CheckTwoSvg from "./CheckTwoSvg"
+import PickUpSvg from "./PickUpSvg"
+import OrderSvg from "./OrderSvg"
 
 export {
   FacebookSvg,
@@ -138,4 +140,6 @@ export {
   SmallMapPinTwo,
   CreditCardTwoSvg,
   CheckTwoSvg,
+  PickUpSvg,
+  OrderSvg,
 }

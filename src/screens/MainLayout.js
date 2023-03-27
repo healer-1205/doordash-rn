@@ -4,12 +4,19 @@ import { Shadow } from "react-native-shadow-2"
 import { useNavigation } from "@react-navigation/native"
 
 import Home from "../screens/Home"
-import Places from "../screens/Places"
+import Places from "../screens/Places" // PickUp for temp
 import CartIsEmpty from "../screens/CartIsEmpty"
 import Favorite from "../screens/Favorite"
 import Profile from "../screens/Profile"
 
-import { HomeSvg, ProfileSvg, HeartSvg, BagSvg, PlaceSvg } from "../svg"
+import {
+  HomeSvg,
+  ProfileSvg,
+  SearchSvg,
+  BagSvg,
+  PickUpSvg,
+  OrderSvg,
+} from "../svg"
 import { COLORS, SIZES, dishes, FONTS } from "../constants"
 
 export default function MainLayout() {
@@ -29,90 +36,32 @@ export default function MainLayout() {
       id: "2",
       screen: "Places",
       icon: (
-        <PlaceSvg
+        <PickUpSvg
           color={selectedTab == "Places" ? COLORS.carrot : COLORS.gray}
         />
       ),
     },
     {
       id: "3",
-      screen: "CartIsEmpty",
+      screen: "Search",
       icon: (
-        <View
-          style={{
-            width: 76,
-            height: 76,
-            backgroundColor: COLORS.white,
-            top: -30,
-            borderRadius: 40,
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <View
-            style={{
-              width: 64,
-              height: 64,
-              backgroundColor: COLORS.carrot,
-              borderRadius: 35,
-              justifyContent: "center",
-              alignItems: "center",
-              zIndex: 1,
-            }}
-          >
-            <BagSvg />
-            <View
-              style={{
-                width: 22,
-                height: 22,
-                backgroundColor: COLORS.white,
-                borderRadius: 11,
-                justifyContent: "center",
-                alignItems: "center",
-                position: "absolute",
-                right: 11,
-                bottom: 11,
-              }}
-            >
-              <Text
-                style={{
-                  fontSize: 12,
-                  color: COLORS.golden,
-                  ...FONTS.Lato_900Black,
-                  color: COLORS.carrot,
-                }}
-              >
-                5
-              </Text>
-            </View>
-          </View>
-          <Text
-            style={{
-              fontSize: 12,
-              fontFamily: "Lato-Regular",
-              textAlign: "center",
-              color: COLORS.carrot,
-              position: "absolute",
-              bottom: -15,
-            }}
-          >
-            $48.93
-          </Text>
-        </View>
+        <SearchSvg
+          color={selectedTab == "Favorite" ? COLORS.carrot : COLORS.gray}
+        />
       ),
     },
     {
       id: "4",
-      screen: "Favorite",
+      screen: "Orders",
       icon: (
-        <HeartSvg
+        <OrderSvg
           color={selectedTab == "Favorite" ? COLORS.carrot : COLORS.gray}
         />
       ),
     },
     {
       id: "5",
-      screen: "Profile",
+      screen: "Account",
       icon: (
         <ProfileSvg
           color={selectedTab == "Profile" ? COLORS.carrot : COLORS.gray}
@@ -144,8 +93,6 @@ export default function MainLayout() {
             backgroundColor: COLORS.white,
             paddingBottom: 4,
             paddingTop: 2,
-            borderTopLeftRadius: 20,
-            borderTopRightRadius: 20,
             width: SIZES.width,
           }}
         >
@@ -160,7 +107,7 @@ export default function MainLayout() {
                 }
                 activeOpacity={0.8}
               >
-                <View>
+                <View style={{ paddingVertical: 10 }}>
                   <View
                     style={{
                       alignSelf: "center",
