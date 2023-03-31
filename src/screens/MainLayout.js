@@ -4,7 +4,7 @@ import { Shadow } from "react-native-shadow-2"
 import { useNavigation } from "@react-navigation/native"
 
 import Home from "../screens/Home"
-import Places from "../screens/Places" // PickUp for temp
+import PickUp from "./PickUp" // PickUp for temp
 import CartIsEmpty from "../screens/CartIsEmpty"
 import Favorite from "../screens/Favorite"
 import Profile from "../screens/Profile"
@@ -34,10 +34,10 @@ export default function MainLayout() {
     },
     {
       id: "2",
-      screen: "Places",
+      screen: "PickUp",
       icon: (
         <PickUpSvg
-          color={selectedTab == "Places" ? COLORS.carrot : COLORS.gray}
+          color={selectedTab == "PickUp" ? COLORS.carrot : COLORS.gray}
         />
       ),
     },
@@ -46,7 +46,7 @@ export default function MainLayout() {
       screen: "Search",
       icon: (
         <SearchSvg
-          color={selectedTab == "Favorite" ? COLORS.carrot : COLORS.gray}
+          color={selectedTab == "CartIsEmpty" ? COLORS.carrot : COLORS.gray}
         />
       ),
     },
@@ -73,7 +73,7 @@ export default function MainLayout() {
   return (
     <View style={{ flex: 1, backgroundColor: COLORS.white }}>
       {selectedTab === "Home" && <Home />}
-      {selectedTab === "Places" && <Places />}
+      {selectedTab === "PickUp" && <PickUp />}
       {selectedTab === "CartIsEmpty" && <CartIsEmpty />}
       {selectedTab === "Favorite" && <Favorite />}
       {selectedTab === "Profile" && <Profile />}
